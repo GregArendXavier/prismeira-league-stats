@@ -1,0 +1,14 @@
+.formNumber input::-webkit-outer-spin-button,
+.formNumber input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.formNumber input:focus {
+    outline: none;
+    background-color: #1e293b;
+}
+
+.formNumber input:focus::placeholder {
+    color: transparent;
+}
