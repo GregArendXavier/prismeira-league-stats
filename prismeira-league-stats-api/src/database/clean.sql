@@ -1,0 +1,1 @@
+delete from resultados_partidas
