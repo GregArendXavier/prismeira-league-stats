@@ -7,6 +7,9 @@ async function Upsert(req, res) {
     pontosMandante,
     felinosMandante,
     felinosVisitante,
+    penalidadesMandante,
+    penalidadesVisitante,
+    juiz,
     idPartida,
   } = req.body;
 
@@ -16,6 +19,9 @@ async function Upsert(req, res) {
       qtd_pontos_mandante: pontosMandante,
       qtd_felinos_mandante: felinosMandante,
       qtd_felinos_visitante: felinosVisitante,
+      qtd_penalidades_mandante: penalidadesMandante,
+      qtd_penalidades_visitante: penalidadesVisitante,
+      juiz: juiz,
       id_partida: idPartida,
     })
     .onConflict("id_partida")

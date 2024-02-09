@@ -12,3 +12,7 @@
 .formNumber input:focus::placeholder {
     color: transparent;
 }
+
+.formSelect {
+    background-color: #1e293b;
+}
