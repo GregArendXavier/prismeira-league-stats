@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from '../styles/App.module.css'
 import api from '../services/api';
 import Router from 'next/router';
+import { IconSalvar } from '../components/icons';
 
 export default function Score() {
 
@@ -125,9 +126,12 @@ export default function Score() {
           </select>
         </div>
         <button className={"rounded-full border-white border-2 py-2 px-6 hover:bg-gray-700"} onClick={e => handleSave()}>
-          <span className="text-2xl">
-            Salvar
-          </span>
+          <div className="flex justify-center items-baseline">
+            {IconSalvar}
+            <span className="text-2xl mx-2">
+              Salvar
+            </span>
+          </div>
         </button>
       </div>
       <span className='text-5xl text-center border-y-2 p-2'>
