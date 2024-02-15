@@ -1,6 +1,8 @@
 import database from "../database/conection.mjs";
 import { Router } from "express";
 
+const Merge = Router();
+
 async function Upsert(req, res) {
   const {
     pontosVisitante,
@@ -26,10 +28,10 @@ async function Upsert(req, res) {
     })
     .onConflict("id_partida")
     .merge()
-    .then((value) => database.raw(`SELECT * from resultados_partidas`))
-    .then((results) => {
-      return results;
-    })
+    // .then((value) => database.raw(`SELECT * from resultados_partidas`))
+    // .then((results) => {
+    //   return results;
+    // })
     .catch((error) => console.log(error));
 
   const dataCLean = await target;
@@ -37,8 +39,6 @@ async function Upsert(req, res) {
   res.status(200).send(dataCLean);
 }
 
-const ROTAS = Router();
+Merge.post("/upsert", Upsert);
 
-ROTAS.post("/upsert", Upsert);
-
-export default ROTAS;
+export default Merge;

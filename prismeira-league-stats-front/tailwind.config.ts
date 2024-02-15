@@ -5,6 +5,10 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
+    screens: {
+      cel: '300px',
+      dkp: '700px'
+    },
     extend: {},
   },
   plugins: [],

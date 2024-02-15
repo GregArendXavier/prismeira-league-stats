@@ -2,9 +2,10 @@ import { useState } from 'react';
 import styles from '../styles/App.module.css'
 import api from '../services/api';
 import Router from 'next/router';
-import { IconSalvar } from '../components/icons';
+import { IconMenu, IconSalvar } from '../components/icons';
+import Link from 'next/link';
 
-export default function Score() {
+export default function Placar() {
 
   const [idPartida, setIdPartida] = useState<number>(0)
   const [felinosVisitante, setFelinosVisitante] = useState<number>(0)
@@ -13,6 +14,7 @@ export default function Score() {
   const [pontosMandante, setPontosMandante] = useState<number>(0)
   const [penalidadesVisitante, setPenalidadesVisitante] = useState<number>(0)
   const [penalidadesMandante, setPenalidadesMandante] = useState<number>(0)
+  const [menu, setMenu] = useState<boolean>(false)
   const [juiz, setJuiz] = useState<string>("")
 
   function handleClickVisitante (e: React.MouseEvent<HTMLButtonElement>, origem: string): void {
@@ -102,13 +104,13 @@ export default function Score() {
 
   return (
     <div className={`flex flex-col justify-center items-strech`}>
-      <div className={`${styles.formNumber} my-8 flex justify-evenly items-baseline`}>
-        <div className='flex'>
-          <span className='text-2xl mr-2'>Partida:</span>
-          <input type="number" value={idPartida == 0 || Number.isNaN(idPartida) ? '' : idPartida } onChange={e => setIdPartida(parseInt(e.target.value))} name="Id Partida" id="1" placeholder="Id Partida" className={`bg-transparent w-32 rounded-md text-2xl`}/>
+      <div className={`cel:block cel:my-2 cel:mx-2 ${styles.formNumber} dkp:my-8 dkp:flex justify-evenly items-baseline`}>
+        <div className='flex cel:mb-2'>
+          <span className='cel:text-xl dkp:text-2xl mr-2'>Partida:</span>
+          <input type="number" value={idPartida == 0 || Number.isNaN(idPartida) ? '' : idPartida } onChange={e => setIdPartida(parseInt(e.target.value))} name="Id Partida" id="1" placeholder="Id Partida" className={`bg-transparent w-32 rounded-md cel:text-xl dkp:text-2xl`}/>
         </div>
-        <div>
-          <span className="text-2xl mr-2">
+        <div className='cel:mb-2'>
+          <span className="cel:text-xl dkp:text-2xl mr-2">
             Juiz:
           </span>
           <select onChange={e => setJuiz(e.currentTarget.value)} className={`${styles.formSelect} bg-transparent rounded-md text-xl w-32 outline-none`} name='juiz'>
@@ -125,14 +127,38 @@ export default function Score() {
             <option value="gregori">Grégori</option>
           </select>
         </div>
-        <button className={"rounded-full border-white border-2 py-2 px-6 hover:bg-gray-700"} onClick={e => handleSave()}>
+        <button className={"rounded-full border-white border-2 cel:py-1 cel:px-3 dkp:py-2 dkp:px-6 hover:bg-gray-700"} onClick={e => handleSave()}>
           <div className="flex justify-center items-baseline">
             {IconSalvar}
-            <span className="text-2xl mx-2">
+            <span className="cel:text-xl dkp:text-2xl mx-2">
               Salvar
             </span>
           </div>
         </button>
+        <div className="absolute top-0 right-0 flex justify-center items-start">
+          <button className={`hover:bg-gray-800 p-2`} onClick={e => setMenu(!menu)}>
+            {IconMenu}
+          </button>
+          {menu ?
+            <ul className='flex flex-col p-3 items-stretch rounded-l-2xl bg-gray-800'>
+              <Link href={'/'} passHref>
+                  <li className='flex flex-col p-3 items-center rounded-md hover:bg-gray-900/25'>
+                      Home
+                  </li>
+              </Link>
+              <Link href={'/placar'} passHref>
+                  <li className='flex flex-col p-3 items-center rounded-md hover:bg-gray-900/25'>
+                      Placar
+                  </li>
+              </Link>
+              <Link href={'/partidas'} passHref>
+                  <li className='flex flex-col p-3 items-center rounded-md hover:bg-gray-900/25'>
+                      Partidas
+                  </li>
+              </Link>
+            </ul>
+          : null}
+        </div>
       </div>
       <span className='text-5xl text-center border-y-2 p-2'>
         Placar

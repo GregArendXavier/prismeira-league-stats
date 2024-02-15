@@ -16,3 +16,10 @@
 .formSelect {
     background-color: #1e293b;
 }
+
+@media (max-width: 600px) {
+    .table {
+        left: 0;
+        justify-content: start;
+    }
+}
