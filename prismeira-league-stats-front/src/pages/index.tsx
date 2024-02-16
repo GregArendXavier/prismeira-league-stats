@@ -102,7 +102,8 @@ export default function Home() {
           </div>
         : null}
         <span className='dkp:text-8xl text-white bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
-          boxShadow: "15px 15px 15px #000"
+          boxShadow: "15px 15px 15px #000",
+          color: '#fff'
         }}>
           {dias < 10 ? `0${dias}` : dias}
         </span>
