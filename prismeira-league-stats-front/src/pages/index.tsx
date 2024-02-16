@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-screen">
       <div className="absolute top-0 right-0 flex justify-center items-start">
-        <button className={`hover:bg-gray-800 p-2`} onClick={e => setMenu(!menu)}>
+        <button className={`hover:bg-gray-800 p-2 text-white`} onClick={e => setMenu(!menu)}>
           {IconMenu}
         </button>
         {menu ?
@@ -101,25 +101,25 @@ export default function Home() {
                 />
           </div>
         : null}
-        <span className='dkp:text-8xl bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
+        <span className='dkp:text-8xl text-white bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
           boxShadow: "15px 15px 15px #000"
         }}>
           {dias < 10 ? `0${dias}` : dias}
         </span>
-        <span className="dkp:text-8xl dkp:mx-4 cel:text-xl cel:mx-0">:</span>
-        <span className='dkp:text-8xl bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
+        <span className="dkp:text-8xl text-white dkp:mx-4 cel:text-xl cel:mx-0">:</span>
+        <span className='dkp:text-8xl text-white bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
           boxShadow: "15px 15px 15px #000"
         }}>
         {horas < 10 ? `0${horas}` : horas}
         </span>
-        <span className="dkp:text-8xl dkp:mx-4 cel:text-xl cel:mx-0">:</span>
-        <span className='dkp:text-8xl bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
+        <span className="dkp:text-8xl text-white dkp:mx-4 cel:text-xl cel:mx-0">:</span>
+        <span className='dkp:text-8xl text-white bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
           boxShadow: "15px 15px 15px #000"
         }}>
           {minutos < 10 ? `0${minutos}` : minutos}
         </span>
-        <span className="dkp:text-8xl dkp:mx-4 cel:text-xl cel:mx-0">:</span>
-        <span className='dkp:text-8xl bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
+        <span className="dkp:text-8xl text-white dkp:mx-4 cel:text-xl cel:mx-0">:</span>
+        <span className='dkp:text-8xl text-white bg-gray-800 mx-4 dkp:py-8 dkp:px-10 rounded-lg border-2 border-white cel:p-3 cel:text-xl' style={{
           boxShadow: "15px 15px 15px #000"
         }}>
           {segundos < 10 ? `0${segundos}` : segundos}
