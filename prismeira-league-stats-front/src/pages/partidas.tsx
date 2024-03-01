@@ -1,7 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { iPartidas } from '../configs/interfaces';
 import api from '../services/api';
-import { IconMenu, IconeLapis, IconeLixo } from '../components/icons';
+import { IconMenu, IconeExport, IconeLapis, IconeLixo } from '../components/icons';
 import Link from 'next/link';
 import style from '../styles/App.module.css'
 
@@ -70,6 +70,12 @@ export default function Partidas(props: iProps) {
 
     return (
         <div className="cel:block dkp:flex justify-center items-center">
+            {/* <div className='m-3'>
+                <button className='border-white border-2 rounded-xl px-4 py-2 flex hover:bg-gray-600'>
+                    <span className='mr-2'>Exportar Csv</span>
+                    <span>{IconeExport}</span>
+                </button>
+            </div> */}
             <div className={`absolute top-0 right-0 flex justify-center items-start ${style.table}`}>
                 <button className={`hover:bg-gray-800 p-2`} onClick={e => setMenu(!menu)}>
                     {IconMenu}
@@ -94,7 +100,7 @@ export default function Partidas(props: iProps) {
                     </ul>
                 : null}
             </div>
-            <table className={`cel:my-10 cel:mx-0 rounded-xl overflow-hidden dkp:m-10`}>
+            <table className={`cel:my-10 cel:mx-0 rounded-xl overflow-hidden dkp:m-3`}>
                 <thead>
                     <tr key={'01'} className={bgColor1}>
                         <th className='p-2'>Id Partida</th>
