@@ -20,7 +20,6 @@ async function PartidasPrisma(req, res) {
         data_inicio_partida timestamp,
         data_fim_partida timestamp
       )
-  )
   `
     )
     .then((value) => database.raw(`SELECT * from resultados_partidas`))
@@ -34,6 +33,8 @@ async function PartidasPrisma(req, res) {
   if (data) {
     cleanData = data.map((partida) => {
       let primeiroNivel = {};
+
+      let nivelExtra = {};
 
       let segundoNivel = {};
 
@@ -51,7 +52,9 @@ async function PartidasPrisma(req, res) {
 
       primeiroNivel.juiz = partida.juiz;
 
-      segundoNivel[partida.qtd_penalidades_visitante] = primeiroNivel;
+      nivelExtra[partida.vencedor] = primeiroNivel;
+
+      segundoNivel[partida.qtd_penalidades_visitante] = nivelExtra;
 
       terceiroNivel[partida.qtd_penalidades_mandante] = segundoNivel;
 
