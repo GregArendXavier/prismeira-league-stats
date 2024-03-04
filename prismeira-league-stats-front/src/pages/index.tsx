@@ -18,7 +18,7 @@ export default function Home() {
   })
   const [menu, setMenu] = useState<boolean>(false)
 
-  const dataTarget = new Date(2024, 2, 4, 11, 30).getTime()
+  const dataTarget = new Date(2024, 2, 4, 13, 0).getTime()
 
   const defaultOptions = {
     loop: true,
@@ -31,13 +31,13 @@ export default function Home() {
 
 
   function calculaCountdown() {
-    let diasFaltantes = Math.floor((dataTarget -Date.now())  / 86400000)
+    let diasFaltantes = Math.floor((dataTarget -Date.now())) >= 0 ? Math.floor((dataTarget -Date.now())  / 86400000) : 0
     
-    let horasFaltantes = Math.floor(((dataTarget -Date.now()) - (diasFaltantes * 86400000)) / 3600000)
+    let horasFaltantes = Math.floor((dataTarget -Date.now())) >= 0  ? Math.floor(((dataTarget -Date.now()) - (diasFaltantes * 86400000)) / 3600000) : 0
   
-    let minutosFaltantes = Math.floor(((dataTarget -Date.now()) - (diasFaltantes * 86400000 + horasFaltantes * 3600000)) / 60000)
+    let minutosFaltantes = Math.floor((dataTarget -Date.now())) >= 0  ? Math.floor(((dataTarget -Date.now()) - (diasFaltantes * 86400000 + horasFaltantes * 3600000)) / 60000) : 0
     
-    let segundosFaltantes = Math.floor(((dataTarget -Date.now()) - (diasFaltantes * 86400000 + horasFaltantes * 3600000 + minutosFaltantes * 60000)) / 1000)
+    let segundosFaltantes = Math.floor((dataTarget -Date.now())) >= 0  ? Math.floor(((dataTarget -Date.now()) - (diasFaltantes * 86400000 + horasFaltantes * 3600000 + minutosFaltantes * 60000)) / 1000): 0
 
     setDias(diasFaltantes)
     setHoras(horasFaltantes)
@@ -46,9 +46,7 @@ export default function Home() {
   }
 
   useEffect(() => {
-    if (dataTarget - Date.now() > 0) {
       setInterval(() => calculaCountdown(), 1000)
-    }
   }, [])
 
   return (
