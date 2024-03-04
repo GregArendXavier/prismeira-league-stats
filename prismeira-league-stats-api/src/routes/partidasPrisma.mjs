@@ -11,9 +11,41 @@ async function PartidasPrisma(req, res) {
 
   const data = await target;
 
-  const cleanData = {};
+  let cleanData = data.map((partida) => {
+    let primeiroNivel = {};
 
-  data.map((partida) => (cleanData[partida.id_partida] = partida));
+    let segundoNivel = {};
+
+    let terceiroNivel = {};
+
+    let quartoNivel = {};
+
+    let quintoNivel = {};
+
+    let sextoNivel = {};
+
+    let setimoNivel = {};
+
+    let ultimoNivel = {};
+
+    primeiroNivel.juiz = partida.juiz;
+
+    segundoNivel[partida.qtd_penalidades_visitante] = primeiroNivel;
+
+    terceiroNivel[partida.qtd_penalidades_mandante] = segundoNivel;
+
+    quartoNivel[partida.qtd_felinos_visitante] = terceiroNivel;
+
+    quintoNivel[partida.qtd_felinos_mandante] = quartoNivel;
+
+    sextoNivel[partida.qtd_pontos_mandante] = quintoNivel;
+
+    setimoNivel[partida.qtd_pontos_visitante] = sextoNivel;
+
+    ultimoNivel[partida.id_partida] = setimoNivel;
+
+    return ultimoNivel;
+  });
 
   res.status(200).send(cleanData);
 }

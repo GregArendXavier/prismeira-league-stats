@@ -15,11 +15,12 @@ export default function Placar() {
   const [penalidadesVisitante, setPenalidadesVisitante] = useState<number>(0)
   const [penalidadesMandante, setPenalidadesMandante] = useState<number>(0)
   const [menu, setMenu] = useState<boolean>(false)
+  const [diminuir, setDiminuir] = useState<boolean>(false)
   const [juiz, setJuiz] = useState<string>("")
 
   function handleClickVisitante (e: React.MouseEvent<HTMLButtonElement>, origem: string): void {
     e.preventDefault()
-    if(e.shiftKey) {
+    if(e.shiftKey || diminuir) {
       if (origem === 'FelinosVisitante') {
         if (felinosVisitante > 0) {
           setFelinosVisitante(felinosVisitante - 1)
@@ -52,7 +53,7 @@ export default function Placar() {
 
   function handleClickMandante (e: React.MouseEvent<HTMLButtonElement>, origem: string): void {
     e.preventDefault()
-    if(e.shiftKey) {
+    if(e.shiftKey || diminuir) {
       if (origem === 'FelinosMandante') {
         if (felinosMandante > 0) {
           setFelinosMandante(felinosMandante - 1)
@@ -104,8 +105,8 @@ export default function Placar() {
 
   return (
     <div className={`flex flex-col justify-center items-strech`}>
-      <div className={`cel:block cel:my-2 cel:mx-2 ${styles.formNumber} dkp:my-8 dkp:flex justify-evenly items-baseline`}>
-        <div className='flex cel:mb-2'>
+      <div className={`cel:block cel:my-2 cel:mx-2 ${styles.formNumber} dkp:my-8 dkp:flex dkp:justify-evenly dkp:items-baseline`}>
+        <div className='flex cel:my-2'>
           <span className='cel:text-xl dkp:text-2xl mr-2'>Partida:</span>
           <input type="number" value={idPartida == 0 || Number.isNaN(idPartida) ? '' : idPartida } onChange={e => setIdPartida(parseInt(e.target.value))} name="Id Partida" id="1" placeholder="Id Partida" className={`bg-transparent w-32 rounded-md cel:text-xl dkp:text-2xl`}/>
         </div>
@@ -113,7 +114,7 @@ export default function Placar() {
           <span className="cel:text-xl dkp:text-2xl mr-2">
             Juiz:
           </span>
-          <select onChange={e => setJuiz(e.currentTarget.value)} className={`${styles.formSelect} bg-transparent rounded-md text-xl w-32 outline-none`} name='juiz'>
+          <select onChange={e => setJuiz(e.currentTarget.value)} className={`bg-slate-800 rounded-md text-xl w-32 outline-none`} name='juiz'>
             <option value=""></option>
             <option value="luis">Luis</option>
             <option value="douglas">Douglas</option>
@@ -127,8 +128,8 @@ export default function Placar() {
             <option value="gregori">Grégori</option>
           </select>
         </div>
-        <button className={"rounded-full border-white border-2 cel:py-1 cel:px-3 dkp:py-2 dkp:px-6 hover:bg-gray-700"} onClick={e => handleSave()}>
-          <div className="flex justify-center items-baseline">
+        <button className={"text-center rounded-full border-white border-2 cel:py-1 cel:px-3 dkp:py-2 dkp:px-6 hover:bg-gray-700 my-2"} onClick={e => handleSave()}>
+          <div className="flex justify-center items-center">
             {IconSalvar}
             <span className="cel:text-xl dkp:text-2xl mx-2">
               Salvar
@@ -158,6 +159,20 @@ export default function Placar() {
               </Link>
             </ul>
           : null}
+        </div>
+        <div className="dkp:hidden cel:my-2">
+          <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+            <input
+              type="checkbox"
+              name="toggle"
+              id="toggle"
+              checked={diminuir}
+              onChange={() => setDiminuir(!diminuir)}
+              className="toggle-checkbox hidden"
+            />
+            <label htmlFor="toggle" className={`toggle-label block overflow-hidden h-6 rounded-full ${diminuir ? 'bg-slate-800' : 'bg-slate-400'} cursor-pointer`}></label>
+            <span className={`toggle-dot absolute top-0 left-0 h-5 w-5 rounded-full shadow-inner transform transition ease-in-out duration-200 ${diminuir ? 'translate-x-full bg-white' : 'translate-x-0 bg-slate-800'}`}></span>
+          </div>
         </div>
       </div>
       <span className='text-5xl text-center border-y-2 p-2'>
