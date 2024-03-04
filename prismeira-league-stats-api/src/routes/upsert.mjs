@@ -13,6 +13,7 @@ async function Upsert(req, res) {
     penalidadesVisitante,
     juiz,
     idPartida,
+    vencedor,
   } = req.body;
 
   const target = database("resultados_partidas")
@@ -24,6 +25,7 @@ async function Upsert(req, res) {
       qtd_penalidades_mandante: penalidadesMandante,
       qtd_penalidades_visitante: penalidadesVisitante,
       juiz: juiz,
+      vencedor: vencedor,
       id_partida: idPartida,
     })
     .onConflict("id_partida")

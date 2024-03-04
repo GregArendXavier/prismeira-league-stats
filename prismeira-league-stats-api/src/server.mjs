@@ -1,11 +1,9 @@
 import express from "express";
 import cors from "cors";
-import ROTAS from "./routes/upsert.mjs";
 import Merge from "./routes/upsert.mjs";
 import SelectAll from "./routes/partidas.mjs";
 import SelectOne from "./routes/partida.mjs";
 import SelectAllPrisma from "./routes/partidasPrisma.mjs";
-import database from "./database/conection.mjs";
 
 const app = express();
 

@@ -17,6 +17,7 @@ export default function Placar() {
   const [menu, setMenu] = useState<boolean>(false)
   const [diminuir, setDiminuir] = useState<boolean>(false)
   const [juiz, setJuiz] = useState<string>("")
+  const [vencedor, setVencedor] = useState<string>("")
 
   function handleClickVisitante (e: React.MouseEvent<HTMLButtonElement>, origem: string): void {
     e.preventDefault()
@@ -97,7 +98,8 @@ export default function Placar() {
         felinosVisitante,
         penalidadesMandante,
         penalidadesVisitante,
-        juiz
+        juiz,
+        vencedor
       })
       .then(value => Router.reload())
     }
@@ -126,6 +128,24 @@ export default function Placar() {
             <option value="Sandro">Sandro</option>
             <option value="iuri">Iuri</option>
             <option value="gregori">Grégori</option>
+          </select>
+        </div>
+        <div className='cel:mb-2'>
+          <span className="cel:text-xl dkp:text-2xl mr-2">
+            Vencedor:
+          </span>
+          <select onChange={e => setVencedor(e.currentTarget.value)} className={`bg-slate-800 rounded-md text-xl w-32 outline-none`} name='vencedor'>
+            <option value=""></option>
+            <option value="6">Luis</option>
+            <option value="1">Douglas</option>
+            <option value="8">Gustavo</option>
+            <option value="2">João</option>
+            <option value="3">Leonardo</option>
+            <option value="7">Erick</option>
+            <option value="9">Vagner</option>
+            <option value="10">Sandro</option>
+            <option value="4">Iuri</option>
+            <option value="5">Grégori</option>
           </select>
         </div>
         <button className={"text-center rounded-full border-white border-2 cel:py-1 cel:px-3 dkp:py-2 dkp:px-6 hover:bg-gray-700 my-2"} onClick={e => handleSave()}>
