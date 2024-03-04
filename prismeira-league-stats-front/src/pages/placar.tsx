@@ -181,17 +181,13 @@ export default function Placar() {
           : null}
         </div>
         <div className="dkp:hidden cel:my-2">
-          <div className="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
-            <input
-              type="checkbox"
-              name="toggle"
-              id="toggle"
-              checked={diminuir}
-              onChange={() => setDiminuir(!diminuir)}
-              className="toggle-checkbox hidden"
-            />
-            <label htmlFor="toggle" className={`toggle-label block overflow-hidden h-6 rounded-full ${diminuir ? 'bg-slate-800' : 'bg-slate-400'} cursor-pointer`}></label>
-            <span className={`toggle-dot absolute top-0 left-0 h-5 w-5 rounded-full shadow-inner transform transition ease-in-out duration-200 ${diminuir ? 'translate-x-full bg-white' : 'translate-x-0 bg-slate-800'}`}></span>
+          <div className="relative inline-block w-20 mr-2 align-middle select-none transition duration-200 ease-in">
+            <button
+              onClick={() => setDiminuir(!diminuir)}
+            >
+              <span className={`toggle-span block overflow-hidden h-6 w-10 rounded-full ${diminuir ? 'bg-slate-800' : 'bg-slate-400'} cursor-pointer`}></span>
+              <span className={`absolute top-0 left-0 h-5 w-5 rounded-full shadow-inner transform transition ease-in-out duration-200 ${diminuir ? 'translate-x-full bg-white' : 'translate-x-0 bg-slate-800'}`}></span>
+            </button>
           </div>
         </div>
       </div>
