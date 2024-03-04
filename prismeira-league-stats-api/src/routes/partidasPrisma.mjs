@@ -30,7 +30,7 @@ async function PartidasPrisma(req, res) {
   let cleanData = [];
 
   if (data) {
-    data.map((partida) => {
+    cleanData = data.map((partida) => {
       let primeiroNivel = {};
 
       let segundoNivel = {};
