@@ -7,4 +7,5 @@ export interface iPartidas {
     qtd_penalidades_visitante: number;
     qtd_penalidades_mandante: number;
     juiz: string;
+    vencedor: string;
 }
