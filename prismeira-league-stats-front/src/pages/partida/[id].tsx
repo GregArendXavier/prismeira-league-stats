@@ -184,12 +184,12 @@ export default function Partida(props: iProps) {
             <option value="5">Grégori</option>
           </select>
         </div>
-        <button className={"text-center rounded-full border-white border-2 cel:py-1 cel:px-3 dkp:py-2 dkp:px-6 hover:bg-gray-700 my-2"} onClick={e => handleSave()}>
-          <div className="flex justify-center items-center">
+        <button className={"text-center rounded-full dkp:py-2 dkp:px-2 hover:bg-gray-700 my-2"} onClick={e => handleSave()}>
+          <div className="flex justify-start items-center">
             {IconSalvar}
-            <span className="cel:text-xl dkp:text-2xl mx-2">
+            {/* <span className="cel:text-xl dkp:text-2xl mx-2">
               Salvar
-            </span>
+            </span> */}
           </div>
         </button>
         <div className="absolute top-0 right-0 flex justify-center items-start">

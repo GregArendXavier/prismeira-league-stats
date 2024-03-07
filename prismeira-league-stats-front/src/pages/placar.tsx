@@ -107,7 +107,7 @@ export default function Placar() {
 
   return (
     <div className={`flex flex-col justify-center items-strech`}>
-      <div className={`cel:block cel:my-2 cel:mx-2 ${styles.formNumber} dkp:my-8 dkp:flex dkp:justify-evenly dkp:items-baseline`}>
+      <div className={`cel:flex cel:flex-col cel:my-2 cel:mx-2 ${styles.formNumber} dkp:my-8 dkp:flex dkp:justify-evenly dkp:items-baseline`}>
         <div className='flex cel:my-2'>
           <span className='cel:text-xl dkp:text-2xl mr-2'>Partida:</span>
           <input type="number" value={idPartida == 0 || Number.isNaN(idPartida) ? '' : idPartida } onChange={e => setIdPartida(parseInt(e.target.value))} name="Id Partida" id="1" placeholder="Id Partida" className={`bg-transparent w-32 rounded-md cel:text-xl dkp:text-2xl`}/>
@@ -148,12 +148,12 @@ export default function Placar() {
             <option value="5">Grégori</option>
           </select>
         </div>
-        <button className={"text-center rounded-full border-white border-2 cel:py-1 cel:px-3 dkp:py-2 dkp:px-6 hover:bg-gray-700 my-2"} onClick={e => handleSave()}>
-          <div className="flex justify-center items-center">
+        <button className={"text-start w-20 rounded-full dkp:py-2 dkp:px-2 hover:bg-gray-700 my-2"} onClick={e => handleSave()}>
+          <div className="flex justify-start items-center">
             {IconSalvar}
-            <span className="cel:text-xl dkp:text-2xl mx-2">
+            {/* <span className="cel:text-xl dkp:text-2xl mx-2">
               Salvar
-            </span>
+            </span> */}
           </div>
         </button>
         <div className="absolute top-0 right-0 flex justify-center items-start">
