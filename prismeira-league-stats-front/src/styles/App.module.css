@@ -13,9 +13,9 @@
     color: transparent;
 }
 
-@media (max-width: 600px) {
+/* @media (max-width: 600px) {
     .table {
         left: 0;
         justify-content: start;
     }
-}
+} */

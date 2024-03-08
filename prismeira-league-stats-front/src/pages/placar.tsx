@@ -37,17 +37,11 @@ export default function Placar() {
       }
     } else {
       if (origem === 'FelinosVisitante') {
-        if(felinosVisitante < 8) {
           setFelinosVisitante(felinosVisitante + 1)
-        }
       } else if(origem === 'PontosVisitante') {
-        if(pontosVisitante < 8) {
           setPontosVisitante(pontosVisitante + 1)
-        }
       } else if (origem === 'PenalidadesVisitante') {
-        if(penalidadesVisitante < 8) {
           setPenalidadesVisitante(penalidadesVisitante + 1)
-        }
       }
     }
   }
@@ -70,17 +64,11 @@ export default function Placar() {
       }
     } else {
       if (origem === 'FelinosMandante') {
-        if (felinosMandante < 8) {
           setFelinosMandante(felinosMandante + 1)
-        }
       } else if (origem === 'PontosMandante') {
-          if (pontosMandante < 8) {
             setPontosMandante(pontosMandante + 1)
-          }
       } else if (origem === 'PenalidadesMandante') {
-        if (penalidadesMandante < 8) {
           setPenalidadesMandante(penalidadesMandante + 1)
-        }
       }
     }
   }
@@ -107,7 +95,7 @@ export default function Placar() {
 
   return (
     <div className={`flex flex-col justify-center items-strech`}>
-      <div className={`cel:flex cel:flex-col cel:my-2 cel:mx-2 ${styles.formNumber} dkp:my-8 dkp:flex dkp:justify-evenly dkp:items-baseline`}>
+      <div className={`flex cel:flex-col cel:my-2 cel:mx-2 ${styles.formNumber} dkp:my-8 dkp:flex-row dkp:justify-evenly dkp:items-baseline`}>
         <div className='flex cel:my-2'>
           <span className='cel:text-xl dkp:text-2xl mr-2'>Partida:</span>
           <input type="number" value={idPartida == 0 || Number.isNaN(idPartida) ? '' : idPartida } onChange={e => setIdPartida(parseInt(e.target.value))} name="Id Partida" id="1" placeholder="Id Partida" className={`bg-transparent w-32 rounded-md cel:text-xl dkp:text-2xl`}/>
