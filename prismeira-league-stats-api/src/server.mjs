@@ -4,6 +4,7 @@ import Merge from "./routes/upsert.mjs";
 import SelectAll from "./routes/partidas.mjs";
 import SelectOne from "./routes/partida.mjs";
 import SelectAllPrisma from "./routes/partidasPrisma.mjs";
+import AJUSTES from "./routes/ajustes.mjs";
 
 const app = express();
 
@@ -19,5 +20,6 @@ app.use(Merge);
 app.use(SelectAll);
 app.use(SelectOne);
 app.use(SelectAllPrisma);
+app.use(AJUSTES);
 
 app.listen(3002, () => console.log("Magic happens on port 3002"));
