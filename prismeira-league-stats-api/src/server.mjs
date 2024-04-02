@@ -11,6 +11,8 @@ export const app = express();
 
 app.use(cors());
 
+app.use(cors());
+
 app.get("/", (req, res) => res.json({ message: "Wats up" }));
 
 app.use(express.json());
