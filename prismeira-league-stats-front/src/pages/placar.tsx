@@ -90,6 +90,7 @@ export default function Placar() {
         vencedor
       })
       .then(value => Router.reload())
+      .catch(err => alert(`Erro na Api... Verifique antes de tentar salvar novamente! ${err}`))
     }
   }
 
