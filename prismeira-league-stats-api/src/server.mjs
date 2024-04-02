@@ -8,9 +8,10 @@ import AJUSTES from "./routes/ajustes.mjs";
 
 const app = express();
 
+app.use(cors());
+
 app.get("/", (req, res) => res.json({ message: "Wats up" }));
 
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
