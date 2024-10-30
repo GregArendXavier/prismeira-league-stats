@@ -18,7 +18,7 @@ export default function Home() {
   })
   const [menu, setMenu] = useState<boolean>(false)
 
-  const dataTarget = new Date(2024, 2, 4, 13, 0).getTime()
+  const dataTarget = new Date(2024, 12, 13, 18, 30).getTime()
 
   const defaultOptions = {
     loop: true,
